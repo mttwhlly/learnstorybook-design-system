@@ -13,6 +13,8 @@ const CustomButton = styled.button`
   font-size: 1.2em;
 `;
 
+// When the user clicks a button, it will trigger the `action()`,
+// ultimately showing up in Storybook's addon panel.
 function ButtonWrapper(props) {
   return <CustomButton {...props}/>;
 }

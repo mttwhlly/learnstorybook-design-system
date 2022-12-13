@@ -1,3 +1,8 @@
+/**
+- Use an avatar for attributing actions or content to specific users.
+- The user's name should always be present when using Avatar – either printed beside the avatar or in a tooltip.
+**/
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
@@ -123,10 +128,24 @@ export function Avatar({ loading, username, src, size, ...props }) {
   );
 }
 
+
 Avatar.propTypes = {
+  /**
+    Use the loading state to indicate that the data Avatar needs is still loading.
+    */
   loading: PropTypes.bool,
+  /**
+    Avatar falls back to the user's initial when no image is provided.
+    Supply a `username` and omit `src` to see what this looks like.
+    */
   username: PropTypes.string,
+  /**
+    The URL of the Avatar's image.
+    */
   src: PropTypes.string,
+  /**
+    Avatar comes in four sizes. In most cases, you'll be fine with `medium`.
+    */
   size: PropTypes.oneOf(Object.keys(sizes)),
 };
 
