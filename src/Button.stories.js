@@ -1,13 +1,10 @@
-import React from 'react';
-
-import { userEvent, within } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
-
-import styled from 'styled-components';
-
-import { Button } from './Button';
-import { Icon } from './Icon';
-import { StoryLinkWrapper } from './StoryLinkWrapper';
+import React from "react";
+import { userEvent, within } from "@storybook/testing-library";
+import { expect } from "@storybook/jest";
+import styled from "styled-components";
+import { Button } from "./Button";
+import { StoryLinkWrapper } from "./StoryLinkWrapper";
+import { withDesign } from "storybook-addon-designs";
 
 const CustomButton = styled.button`
   border: 1px solid green;
@@ -20,282 +17,104 @@ const CustomButton = styled.button`
 // When the user clicks a button, it will trigger the `action()`,
 // ultimately showing up in Storybook's addon panel.
 function ButtonWrapper(props) {
-  return <CustomButton {...props}/>;
+  return <CustomButton {...props} />;
 }
 
 export default {
-  title: 'Design System/Button',
+  title: "Design System/Button",
   component: Button,
+  /*
+   * More on Storybook argTypes at:
+   * https://storybook.js.org/docs/react/api/argtypes
+   */
+  // argTypes: {},
+  /*
+   * More on Storybook parameters at:
+   * https://storybook.js.org/docs/react/writing-stories/parameters#component-parameters
+   */
+  // parameters: {
+  //   componentSubtitle: "For clicking",
+  // },
 };
+
+/*
+ * New story using Controls
+ * Read more about Storybook templates at:
+ * https://storybook.js.org/docs/react/writing-stories/introduction#using-args
+ */
+const Template = args => <Button {...args} />;
 
 export const AllButtons = (args) => (
   <div>
-    <Button appearance="primary">Primary</Button>
-    <Button appearance="secondary">Secondary</Button>
-    <Button appearance="tertiary">Tertiary</Button>
-    <Button appearance="outline">Outline</Button>
-    <Button appearance="primaryOutline">Outline primary</Button>
-    <Button appearance="secondaryOutline">Outline secondary</Button>
+    <Button appearance="primary">
+      Default
+    </Button>
+    <Button appearance="secondary">Default</Button>
+    <Button appearance="tertiary">Default</Button>
+    <br/>
     <Button appearance="primary" isDisabled>
       Disabled
     </Button>
-    <br />
-    <Button appearance="primary" isLoading>
-      Primary
-    </Button>
-    <Button appearance="secondary" isLoading>
-      Secondary
-    </Button>
-    <Button appearance="tertiary" isLoading>
-      Tertiary
-    </Button>
-    <Button appearance="outline" isLoading>
-      Outline
-    </Button>
-    <Button appearance="outline" isLoading loadingText="Custom...">
-      Outline
-    </Button>
-    <br />
-    <Button appearance="primary" size="small">
-      Primary
-    </Button>
-    <Button appearance="secondary" size="small">
-      Secondary
-    </Button>
-    <Button appearance="tertiary" size="small">
-      Tertiary
-    </Button>
-    <Button appearance="outline" size="small">
-      Outline
-    </Button>
-    <Button appearance="primary" isDisabled size="small">
+    <Button appearance="secondary" isDisabled>
       Disabled
     </Button>
-    <Button appearance="outline" size="small" containsIcon>
-      <Icon icon="link" aria-label="Link" />
-    </Button>
-    <Button appearance="outline" size="small">
-      <Icon icon="link" />
-      Link
+    <Button appearance="tertiary" isDisabled>
+      Disabled
     </Button>
   </div>
 );
+AllButtons.storyName = "All Buttons";
+AllButtons.parameters = {
+  design: {
+    type: "figma",
+    url: "https://www.figma.com/file/HhsnVrGF7RTL3Ci55bJuV1/CAQH-Design-Standards-2.0?node-id=2%3A1116&t=Oy0j3JfWoq9lAnen-4",
+  },
+};
 
-AllButtons.storyName= 'all buttons';
+export const PrimaryButton = Template.bind({});
+PrimaryButton.args = {
+  appearance: "primary",
+  children: "Default"
+}
+PrimaryButton.storyName = "Primary";
 
-export const buttonWrapper = (args) => (
-  <div>
-    <ButtonWrapper>Original Button Wrapper</ButtonWrapper>
-    <br />
-    <Button ButtonWrapper={ButtonWrapper} appearance="primary">
-      Primary
-    </Button>
-    <Button ButtonWrapper={ButtonWrapper} appearance="secondary">
-      Secondary
-    </Button>
-    <Button ButtonWrapper={ButtonWrapper} appearance="tertiary">
-      Tertiary
-    </Button>
-    <Button ButtonWrapper={ButtonWrapper} appearance="outline">
-      Outline
-    </Button>
-    <Button ButtonWrapper={ButtonWrapper} appearance="primaryOutline">
-      Outline primary
-    </Button>
-    <Button ButtonWrapper={ButtonWrapper} appearance="secondaryOutline">
-      Outline secondary
-    </Button>
-    <Button ButtonWrapper={ButtonWrapper} appearance="primary" isDisabled>
-      Disabled
-    </Button>
-    <br />
-    <Button ButtonWrapper={ButtonWrapper} appearance="primary" isLoading>
-      Primary
-    </Button>
-    <Button ButtonWrapper={ButtonWrapper} appearance="secondary" isLoading>
-      Secondary
-    </Button>
-    <Button ButtonWrapper={ButtonWrapper} appearance="tertiary" isLoading>
-      Tertiary
-    </Button>
-    <Button ButtonWrapper={ButtonWrapper} appearance="outline" isLoading>
-      Outline
-    </Button>
-    <Button ButtonWrapper={ButtonWrapper} appearance="outline" isLoading loadingText="Custom...">
-      Outline
-    </Button>
-    <br />
-    <Button ButtonWrapper={ButtonWrapper} appearance="primary" size="small">
-      Primary
-    </Button>
-    <Button ButtonWrapper={ButtonWrapper} appearance="secondary" size="small">
-      Secondary
-    </Button>
-    <Button ButtonWrapper={ButtonWrapper} appearance="tertiary" size="small">
-      Tertiary
-    </Button>
-    <Button ButtonWrapper={ButtonWrapper} appearance="outline" size="small">
-      Outline
-    </Button>
-    <Button ButtonWrapper={ButtonWrapper} appearance="primary" isDisabled size="small">
-      Disabled
-    </Button>
-    <Button ButtonWrapper={ButtonWrapper} appearance="outline" size="small" containsIcon>
-      <Icon icon="link" aria-label="Link" />
-    </Button>
-    <Button ButtonWrapper={ButtonWrapper} appearance="outline" size="small">
-      <Icon icon="link" />
-      Link
-    </Button>
-  </div>
-);
+export const SecondaryButton = Template.bind({});
+SecondaryButton.args = {
+  appearance: "secondary",
+  children: "Default"
+  }
+SecondaryButton.storyName = "Secondary";
 
-buttonWrapper.storyName='button wrapper';
+export const TertiaryButton = Template.bind({});
+TertiaryButton.args = {
+  appearance: "tertiary",
+  children: "Default"
+  }
+TertiaryButton.storyName = "Tertiary";
 
-export const AnchorWrapper = (args) => (
-  <div>
-    <StoryLinkWrapper to="http://storybook.js.org">Original Link Wrapper</StoryLinkWrapper>
-    <br />
-    <Button ButtonWrapper={StoryLinkWrapper} appearance="primary" href="http://storybook.js.org">
-      Primary
-    </Button>
-    <Button ButtonWrapper={StoryLinkWrapper} appearance="secondary" href="http://storybook.js.org">
-      Secondary
-    </Button>
-    <Button ButtonWrapper={StoryLinkWrapper} appearance="tertiary" href="http://storybook.js.org">
-      Tertiary
-    </Button>
-    <Button ButtonWrapper={StoryLinkWrapper} appearance="outline" href="http://storybook.js.org">
-      Outline
-    </Button>
-    <Button
-      ButtonWrapper={StoryLinkWrapper}
-      appearance="primaryOutline"
-      href="http://storybook.js.org"
-    >
-      Outline primary
-    </Button>
-    <Button
-      ButtonWrapper={StoryLinkWrapper}
-      appearance="secondaryOutline"
-      href="http://storybook.js.org"
-    >
-      Outline secondary
-    </Button>
-    <Button
-      ButtonWrapper={StoryLinkWrapper}
-      appearance="primary"
-      isDisabled
-      href="http://storybook.js.org"
-    >
-      Disabled
-    </Button>
-    <br />
-    <Button
-      ButtonWrapper={StoryLinkWrapper}
-      appearance="primary"
-      isLoading
-      href="http://storybook.js.org"
-    >
-      Primary
-    </Button>
-    <Button
-      ButtonWrapper={StoryLinkWrapper}
-      appearance="secondary"
-      isLoading
-      href="http://storybook.js.org"
-    >
-      Secondary
-    </Button>
-    <Button
-      ButtonWrapper={StoryLinkWrapper}
-      appearance="tertiary"
-      isLoading
-      href="http://storybook.js.org"
-    >
-      Tertiary
-    </Button>
-    <Button
-      ButtonWrapper={StoryLinkWrapper}
-      appearance="outline"
-      isLoading
-      href="http://storybook.js.org"
-    >
-      Outline
-    </Button>
-    <Button
-      ButtonWrapper={StoryLinkWrapper}
-      appearance="outline"
-      isLoading
-      loadingText="Custom..."
-      href="http://storybook.js.org"
-    >
-      Outline
-    </Button>
-    <br />
-    <Button
-      ButtonWrapper={StoryLinkWrapper}
-      appearance="primary"
-      size="small"
-      href="http://storybook.js.org"
-    >
-      Primary
-    </Button>
-    <Button
-      ButtonWrapper={StoryLinkWrapper}
-      appearance="secondary"
-      size="small"
-      href="http://storybook.js.org"
-    >
-      Secondary
-    </Button>
-    <Button
-      ButtonWrapper={StoryLinkWrapper}
-      appearance="tertiary"
-      size="small"
-      href="http://storybook.js.org"
-    >
-      Tertiary
-    </Button>
-    <Button
-      ButtonWrapper={StoryLinkWrapper}
-      appearance="outline"
-      size="small"
-      href="http://storybook.js.org"
-    >
-      Outline
-    </Button>
-    <Button
-      ButtonWrapper={StoryLinkWrapper}
-      appearance="primary"
-      isDisabled
-      size="small"
-      href="http://storybook.js.org"
-    >
-      Disabled
-    </Button>
-    <Button
-      ButtonWrapper={StoryLinkWrapper}
-      appearance="outline"
-      size="small"
-      containsIcon
-      href="http://storybook.js.org"
-    >
-      <Icon icon="link" aria-label="Link" />
-    </Button>
-    <Button
-      ButtonWrapper={StoryLinkWrapper}
-      appearance="outline"
-      size="small"
-      href="http://storybook.js.org"
-    >
-      <Icon icon="link" />
-      Link
-    </Button>
-  </div>
-);
+export const PrimaryDisabledButton = Template.bind({});
+PrimaryDisabledButton.args = {
+  appearance: "primary",
+  children: "Disabled",
+  isDisabled: "true"
+  }
+PrimaryDisabledButton.storyName = "Primary (Disabled)";
 
-AnchorWrapper.storyName= 'anchor wrapper';
+export const SecondaryDisabledButton = Template.bind({});
+SecondaryDisabledButton.args = {
+  appearance: "secondary",
+  children: "Disabled",
+  isDisabled: "true"
+  }
+SecondaryDisabledButton.storyName = "Secondary (Disabled)";
+
+export const TertiaryDisabledButton = Template.bind({});
+TertiaryDisabledButton.args = {
+  appearance: "tertiary",
+  children: "Disabled",
+  isDisabled: "true"
+  }
+TertiaryDisabledButton.storyName = "Tertiary (Disabled)";
 
 /*
  * New story using the play function.
@@ -304,18 +123,18 @@ AnchorWrapper.storyName= 'anchor wrapper';
  */
 export const WithInteractions = (args) => <Button {...args} />;
 WithInteractions.args = {
-  appearance: 'primary',
-  href: 'http://storybook.js.org',
-  ButtonWrapper: StoryLinkWrapper,
-  children: 'Button',
+  appearance: "primary",
+  // href: "http://proview.caqh.org",
+  // ButtonWrapper: StoryLinkWrapper,
+  children: "Button",
 };
 
 WithInteractions.play = async ({ canvasElement }) => {
- // Assigns canvas to the component root element
+  // Assigns canvas to the component root element
   const canvas = within(canvasElement);
-  await userEvent.click(canvas.getByRole('link'));
-  expect(canvas.getByRole('link')).toHaveAttribute(
-    'href',
-    'http://storybook.js.org',
-   );
+  await userEvent.click(canvas.getByRole("button"));
+  // expect(canvas.getByRole("button")).toHaveAttribute(
+  //   "appearance",
+  //   "primary"
+  // );
 };
