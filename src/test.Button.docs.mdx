@@ -1,0 +1,99 @@
+
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+
+import { Button } from "./Button";
+
+<Meta
+  title="Design System/Button"
+  component={Button}
+/>
+
+# Button
+
+## Click or tap
+
+Use a button for user engagement.
+
+export const Template = (args) => <Button {...args} />;
+
+
+
+### Primary
+
+<Story name="Primary">
+    <div>
+    <Button appearance="primary">
+      Large
+    </Button>
+    <Button appearance="primary" size="small">
+      Small
+    </Button>
+    <Button appearance="primary" isDisabled size="large">
+      Disabled
+    </Button>
+    <Button appearance="primary" isDisabled size="small">
+      Disabled
+    </Button>
+</div>
+</Story>
+
+### Secondary
+
+<Story name="Secondary">
+    <div>
+    <Button appearance="secondary">
+      Large
+    </Button>
+    <Button appearance="secondary" size="small">
+      Small
+    </Button>
+    <Button appearance="secondary" isDisabled size="large">
+      Disabled
+    </Button>
+    <Button appearance="secondary" isDisabled size="small">
+      Disabled
+    </Button>
+</div>
+</Story>
+
+### Secondary
+
+<Story name="Tertiary">
+    <div>
+    <Button appearance="tertiary">
+      Large
+    </Button>
+    <Button appearance="tertiary" size="small">
+      Small
+    </Button>
+    <Button appearance="tertiary" isDisabled size="large">
+      Disabled
+    </Button>
+    <Button appearance="tertiary" isDisabled size="small">
+      Disabled
+    </Button>
+</div>
+</Story>
+
+
+
+
+
+
+
+### Playground
+
+Experiment with this story with the Controls addon in the Canvas tab.
+
+<Canvas>
+  <Story
+    name="controls"
+    args={{
+      size: "large",
+      appearance: "primary",
+      children: "Button"
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
