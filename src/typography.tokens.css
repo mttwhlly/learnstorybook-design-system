@@ -1,0 +1,29 @@
+/**
+* @tokens Font Size
+* @presenter FontSize
+*/
+--font-size-3xs: 0.579rem;
+--font-size-2xs: 0.694rem;
+--font-size-xs: 0.833rem;
+--font-size-sm: 1rem;
+--font-size-md: 1.2rem;
+--font-size-lg: 1.44rem;
+--font-size-xl: 1.728rem;
+--font-size-2xl: 2.074rem;
+--font-size-3xl: 2.488rem;
+/**
+* @tokens Font Weight
+* @presenter FontWeight
+*/
+--font-weight-light: 300;
+--font-weight-normal: 400;
+--font-weight-medium: 500;
+--font-weight-semibold: 600;
+--font-weight-bold: 700;
+/**
+* @tokens Font Family
+* @presenter FontFamily
+*/
+--font-family: "Volte", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+  "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif; /* The brand font "Volte" with sans-serif fallbacks @presenter FontFamily */

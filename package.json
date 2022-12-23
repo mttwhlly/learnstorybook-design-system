@@ -70,6 +70,7 @@
     "@storybook/addon-essentials": "^6.5.14",
     "@storybook/addon-interactions": "^6.5.14",
     "@storybook/addon-links": "^6.5.14",
+    "@storybook/addons": "^6.5.15",
     "@storybook/builder-webpack4": "^6.5.14",
     "@storybook/jest": "^0.0.10",
     "@storybook/manager-webpack4": "^6.5.14",
@@ -83,7 +84,8 @@
     "cross-env": "^7.0.3",
     "jest": "27",
     "prettier": "^2.8.1",
-    "storybook-addon-designs": "^6.3.1"
+    "storybook-addon-designs": "^6.3.1",
+    "storybook-design-token": "^2.8.2"
   },
   "readme": "ERROR: No README data found!",
   "_id": "learnstorybook-design-system-template@0.1.0",

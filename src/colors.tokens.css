@@ -1,0 +1,57 @@
+:root {
+  /**
+* @tokens Colors
+* @presenter Color
+*/
+
+  --color-primary-lightest: #cce7ff;
+  --color-primary-lighter: #99ceff;
+  --color-primary-light: #66b6ff;
+  --color-primary: #006acc;
+  --color-primary-dark: #005099;
+  --color-primary-darker: #003566;
+  --color-primary-darkest: #001b33;
+
+  --color-base-lightest: #edf5fa;
+  --color-base-lighter: #ced5d9;
+  --color-base-light: #a5aaad;
+  --color-base: #919699;
+  --color-base-dark: #686c6e;
+  --color-base-darker: #494b4d;
+  --color-base-darkest: #0c0d0d;
+
+  --color-accent-lightest: #fff0e5;
+  --color-accent-lighter: #ffd3b2;
+  --color-accent-light: #ff974c;
+  --color-accent: #ff791a;
+  --color-accent-dark: #cc5500;
+  --color-accent-darker: #803500;
+  --color-accent-darkest: #331500;
+
+  --color-success-lightest: #e0ffed;
+  --color-success-lighter: #99ffc2;
+  --color-success-light: #26ff7d;
+  --color-success: #00e55c;
+  --color-success-dark: #00b247;
+  --color-success-darker: #008033;
+  --color-success-darkest: #003314;
+
+  --color-warning-lightest: #fff7c7;
+  --color-warning-lighter: #ffea66;
+  --color-warning-light: #e5c600;
+  --color-warning: #bfa500;
+  --color-warning-dark: #8c7900;
+  --color-warning-darker: #665800;
+  --color-warning-darkest: #332c00;
+
+  --color-emergency-lightest: #fff0f0;
+  --color-emergency-lighter: #ffcccc;
+  --color-emergency-light: #ff9999;
+  --color-emergency: #ff6666;
+  --color-emergency-dark: #ff2626;
+  --color-emergency-darker: #bf0000;
+  --color-emergency-darkest: #660000;
+  /**
+  * @tokens-end
+  */
+}
