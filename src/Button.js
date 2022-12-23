@@ -41,7 +41,6 @@ const StyledButton = styled.button`
   margin: 0;
   background: transparent;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-
   font-size: ${typography.size.s2}px;
   font-weight: ${typography.weight.extrabold};
   line-height: 1;
@@ -149,14 +148,12 @@ const StyledButton = styled.button`
 
 const ButtonLink = StyledButton.withComponent("a");
 
-const applyStyle = ButtonWrapper => {
+const applyStyle = (ButtonWrapper) => {
   return (
     ButtonWrapper &&
-    StyledButton.withComponent(
-      ({ isUnclickable, ...rest }) => (
-        <ButtonWrapper {...rest} />
-      )
-    )
+    StyledButton.withComponent(({ isUnclickable, ...rest }) => (
+      <ButtonWrapper {...rest} />
+    ))
   );
 };
 

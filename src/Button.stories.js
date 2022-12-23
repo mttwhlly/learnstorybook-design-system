@@ -21,7 +21,7 @@ function ButtonWrapper(props) {
 }
 
 export default {
-  title: "Design System/Button",
+  title: "Components/Button",
   component: Button,
   /*
    * More on Storybook argTypes at:
@@ -32,9 +32,9 @@ export default {
    * More on Storybook parameters at:
    * https://storybook.js.org/docs/react/writing-stories/parameters#component-parameters
    */
-  // parameters: {
-  //   componentSubtitle: "For clicking",
-  // },
+  parameters: {
+    componentSubtitle: "For clicks and giggles",
+  },
 };
 
 /*
@@ -42,16 +42,14 @@ export default {
  * Read more about Storybook templates at:
  * https://storybook.js.org/docs/react/writing-stories/introduction#using-args
  */
-const Template = args => <Button {...args} />;
+const Template = (args) => <Button {...args} />;
 
 export const AllButtons = (args) => (
   <div>
-    <Button appearance="primary">
-      Default
-    </Button>
+    <Button appearance="primary">Default</Button>
     <Button appearance="secondary">Default</Button>
     <Button appearance="tertiary">Default</Button>
-    <br/>
+    <br />
     <Button appearance="primary" isDisabled>
       Disabled
     </Button>
@@ -69,51 +67,52 @@ AllButtons.parameters = {
     type: "figma",
     url: "https://www.figma.com/file/HhsnVrGF7RTL3Ci55bJuV1/CAQH-Design-Standards-2.0?node-id=2%3A1116&t=Oy0j3JfWoq9lAnen-4",
   },
+  designToken: { showSearch: false },
 };
 
 export const PrimaryButton = Template.bind({});
 PrimaryButton.args = {
   appearance: "primary",
-  children: "Default"
-}
+  children: "Default",
+};
 PrimaryButton.storyName = "Primary";
 
 export const SecondaryButton = Template.bind({});
 SecondaryButton.args = {
   appearance: "secondary",
-  children: "Default"
-  }
+  children: "Default",
+};
 SecondaryButton.storyName = "Secondary";
 
 export const TertiaryButton = Template.bind({});
 TertiaryButton.args = {
   appearance: "tertiary",
-  children: "Default"
-  }
+  children: "Default",
+};
 TertiaryButton.storyName = "Tertiary";
 
 export const PrimaryDisabledButton = Template.bind({});
 PrimaryDisabledButton.args = {
   appearance: "primary",
   children: "Disabled",
-  isDisabled: "true"
-  }
+  isDisabled: "true",
+};
 PrimaryDisabledButton.storyName = "Primary (Disabled)";
 
 export const SecondaryDisabledButton = Template.bind({});
 SecondaryDisabledButton.args = {
   appearance: "secondary",
   children: "Disabled",
-  isDisabled: "true"
-  }
+  isDisabled: "true",
+};
 SecondaryDisabledButton.storyName = "Secondary (Disabled)";
 
 export const TertiaryDisabledButton = Template.bind({});
 TertiaryDisabledButton.args = {
   appearance: "tertiary",
   children: "Disabled",
-  isDisabled: "true"
-  }
+  isDisabled: "true",
+};
 TertiaryDisabledButton.storyName = "Tertiary (Disabled)";
 
 /*
